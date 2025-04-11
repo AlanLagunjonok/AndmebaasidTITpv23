@@ -1,9 +1,11 @@
 -- SQL kommentaar
--- SQL Server Managment Studio
--- (localdb)\mssqllocaldb
--- Authenfication: Windows Auth - admini õigused localhostis
--- Authenfication: SQL  Server Auth - varem loodud kasutajad
--- New Query 
+-- XAMP Control Panel
+-- conect to
+-- localhost
+-- Authenfication
+-- kasutajanimi - root
+-- parool ei ole
+-- 
 CREATE DATABASE lagunjonokTIT;
 --Object Explorer on vaja pidevalt uuendada käsitsi!
 USE lagunjonokTIT;
