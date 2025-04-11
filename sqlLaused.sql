@@ -31,7 +31,8 @@ VALUES ('Alan', 'Pavlovich', '2000-12-5', 'Tallinn', 1),
 CREATE TABLE ryhm(
 ryhmID int not null primary key identity(1,1),
 ryhm varchar(101) unique,
-osakond varchar(20)
+osakond varchar(20),
+opetajaID int
 );
 INSERT INTO ryhm(ryhm, osakond)
 Values('TITpv23', 'IT'),('KRRpv23', 'Rätsep');
@@ -85,3 +86,24 @@ Select * from hinne;
 SELECT o.perenimi, h.hinne
 FROM opilane o JOIN hinne h
 ON o.opilaneID=h.opilaneID
+
+
+CREATE TABLE opetaja(
+opetajaID int Primary Key identity(1,1),
+nimi varchar(25),
+perenimi varchar(30) Unique,
+telefon varchar(15) 
+);
+
+ALTER TABLE opetaja
+ADD foreign key (opetajaID) references ryhm(opetajaID);
+
+INSERT INTO opetaja(nimi, perenimi, telefon)
+Values('Katja', 'Pilkins', '55555555');
+Select * from opetaja;
+
+
+--This is wrong:
+SELECT r.perenimi, h.hinne
+FROM opilane o JOIN hinne h
+ON r.opetajaID=o.opetajaID
