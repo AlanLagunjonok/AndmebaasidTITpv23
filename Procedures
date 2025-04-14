@@ -1,0 +1,53 @@
+CREATE DATABASE proceduurTIT;
+use proceduurTIT;
+
+CREATE TABLE linnad(
+linnID int PRIMARY KEY identity(1,1),
+linnNimi varchar(30) unique,
+elanikeArv int not null,
+maakond varchar(25),
+);
+--Protseduur, mis lisab (INSERT) tabelisse andemd ja kohe näitab (SELECT) tabeli
+CREATE PROCEDURE lisaLinn
+@linnNimi varchar(30),
+@elanikeArv int,
+@maakond varchar(25)
+AS
+BEGIN
+INSERT INTO linnad(linnNimi, elanikeArv, maakond)
+VALUES( @linnNimi, @elanikeArv, @maakond);
+SELECT * FROM linnad;
+END;
+
+--kutse
+EXEC lisaLinn 'Keila', 1000,
+
+-- protseduuri kustutamine
+DROP Procedure lisaLinn;
+
+-- protseduur, mis kustutab tabelist linnId järgi
+CREATE PROCEDURE kustutaLinn
+@id int
+AS
+BEGIN
+SELECT * FROM linnad;
+DELETE  FROM linnad WHERE linnID=@id;
+SELECT * FROM linnad;
+END
+--kutse
+
+EXEC kustutaLinn 3;
+EXEC kustutaLinn @id=3;
+
+--protseduur mis uuendab tabeli ja suurendab elanike arv 10%
+CREATE Procedure uuendaLinn
+@arv decimal(5,2);
+AS
+BEGIN
+SELECT * FROM linnad;
+UPDATE linnad SET elanikeArv=elanikeArv*@arv;
+SELECT * FROM linnad;
+END
+
+--kutse
+EXEC uuendaLinn 0.5;
