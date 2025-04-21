@@ -102,6 +102,12 @@ INSERT INTO opetaja(nimi, perenimi, telefon)
 Values('Katja', 'Pilkins', '55555555');
 Select * from opetaja;
 
+--PROCEDURE
+BEGIN
+SELECT filmNimetus, pikkus
+FROM film
+WHERE filmNimetus LIKE CONCAT(taht, '%');
+END
 
 --This is wrong:
 SELECT r.perenimi, h.hinne
