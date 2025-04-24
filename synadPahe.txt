@@ -8,10 +8,10 @@ Rida=kirje- строка=запись
 veerg=väli - столбец=поле
 päring - запрос
 --------------------------------
-Käivita - запустить
-Värskenda - uuenda - обновить
-laadia alla - скачать
-laadi üles - загрузить
+Käivitama - запустить
+Värskendama - uuendama - обновить
+laadima alla - скачать
+laadima üles - загрузить
 --------------------------------
 PRIMARY KEY - primaarne võti - первичный ключ
 FOREIGN KEY - välis võti - внешний / вторичный ключ
