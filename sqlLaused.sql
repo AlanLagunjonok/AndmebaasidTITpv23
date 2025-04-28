@@ -1,3 +1,6 @@
+--Разрешения предопределенных ролей базы данных:
+--https://technet.microsoft.com/ru-ru/library/ms189612(v=sql.105).aspx.
+
 -- SQL kommentaar
 -- SQL Server Managment Studio
 -- (localdb)\mssqllocaldb
